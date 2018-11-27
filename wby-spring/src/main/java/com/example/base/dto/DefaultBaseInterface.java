@@ -11,6 +11,6 @@ public class DefaultBaseInterface implements BaseInterface {
 
     @Override
     public void init() {
-        logger.info("BaseInterface初始化了");
+        logger.info("BaseInterface接口的实现类init method执行了");
     }
 }

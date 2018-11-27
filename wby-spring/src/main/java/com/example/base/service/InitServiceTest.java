@@ -17,6 +17,6 @@ public class InitServiceTest {
 
 
     public void initMapper() {
-        logger.info("BaseService注解的类执行了");
+        logger.info("BaseService注解标识的类initMapper method执行了");
     }
 }

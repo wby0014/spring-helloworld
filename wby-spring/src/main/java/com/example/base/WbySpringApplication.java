@@ -1,5 +1,6 @@
 package com.example.base;
 
+import com.example.base.service.InitServiceTest;
 import com.example.base.util.ApplicationContextListener;
 import com.example.base.util.SpringContextUtil;
 import org.slf4j.Logger;
@@ -18,6 +19,8 @@ public class WbySpringApplication {
         new ClassPathXmlApplicationContext("classpath:META-INF/spring/*.xml");
         ApplicationContextListener applicationContextListener = (ApplicationContextListener) SpringContextUtil.getBean("applicationContextListener");
         applicationContextListener.test();
+        InitServiceTest initServiceTest = (InitServiceTest)SpringContextUtil.getBean("initServiceTest");
+        initServiceTest.initMapper();
         LOGGER.info(">>>>> wby-spring 启动完成 <<<<<");
     }
 
