@@ -15,22 +15,22 @@ import java.util.Map;
  */
 public class ApplicationContextListener implements ApplicationListener<ContextRefreshedEvent> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationContextListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApplicationContextListener.class);
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         // root application context
         if (null == contextRefreshedEvent.getApplicationContext().getParent()) {
-            LOGGER.info(">>>>> spring初始化完毕 <<<<<");
+            logger.info(">>>>> spring初始化完毕 <<<<<");
             // spring初始化完毕后，通过反射调用所有使用BaseService注解的initMapper方法
             Map<String, Object> baseServices = contextRefreshedEvent.getApplicationContext().getBeansWithAnnotation(BaseService.class);
             for (Object service : baseServices.values()) {
-                LOGGER.info(">>>>> {}.initMapper()", service.getClass().getName());
+                logger.info(">>>>> {}.initMapper()", service.getClass().getName());
                 try {
                     Method initMapper = service.getClass().getMethod("initMapper");
                     initMapper.invoke(service);
                 } catch (Exception e) {
-                    LOGGER.error("初始化BaseService的initMapper方法异常", e);
+                    logger.error("初始化BaseService的initMapper方法异常", e);
                     e.printStackTrace();
                 }
             }
@@ -38,17 +38,20 @@ public class ApplicationContextListener implements ApplicationListener<ContextRe
             // 系统入口初始化
             Map<String, BaseInterface> baseInterfaceBeans = contextRefreshedEvent.getApplicationContext().getBeansOfType(BaseInterface.class);
             for (Object service : baseInterfaceBeans.values()) {
-                LOGGER.info(">>>>> {}.init()", service.getClass().getName());
+                logger.info(">>>>> {}.init()", service.getClass().getName());
                 try {
                     Method init = service.getClass().getMethod("init");
                     init.invoke(service);
                 } catch (Exception e) {
-                    LOGGER.error("初始化BaseInterface的init方法异常", e);
+                    logger.error("初始化BaseInterface的init方法异常", e);
                     e.printStackTrace();
                 }
             }
-
         }
+    }
+
+    public void test() {
+        logger.info("text method 执行了");
     }
 
 }

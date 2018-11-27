@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author wubinyu
  * @date 2018/11/27 10:16.
  */
-@Component
+@Component("initServiceTest")
 @BaseService
 public class InitServiceTest {
 
