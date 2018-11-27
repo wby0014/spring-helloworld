@@ -6,8 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-helloworld" />
+        <module name="wby-spring" />
+        <module name="wby-springmvc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-helloworld" target="1.5" />
+      <module name="wby-spring" target="1.8" />
+      <module name="wby-springmvc" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
