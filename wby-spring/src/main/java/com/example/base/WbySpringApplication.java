@@ -16,9 +16,7 @@ public class WbySpringApplication {
 
     public static void main(String[] args) {
         LOGGER.info(">>>>> wby-spring 正在启动 <<<<<");
-        new ClassPathXmlApplicationContext("classpath:META-INF/spring/*.xml");
-        ApplicationContextListener applicationContextListener = (ApplicationContextListener) SpringContextUtil.getBean("applicationContextListener");
-        applicationContextListener.test();
+        new TestExtendApplicationcontext("classpath:META-INF/spring/*.xml");
         InitServiceTest initServiceTest = (InitServiceTest)SpringContextUtil.getBean("initServiceTest");
         initServiceTest.initMapper();
         LOGGER.info(">>>>> wby-spring 启动完成 <<<<<");
