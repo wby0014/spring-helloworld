@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * dev分支新增注释
  * 服务启动类
  */
 public class WbySpringApplication {
