@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spring-helloworld.iml" filepath="$PROJECT_DIR$/spring-helloworld.iml" />
       <module fileurl="file://$PROJECT_DIR$/wby-spring/wby-spring.iml" filepath="$PROJECT_DIR$/wby-spring/wby-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wby-springaop/wby-springaop.iml" filepath="$PROJECT_DIR$/wby-springaop/wby-springaop.iml" />
       <module fileurl="file://$PROJECT_DIR$/wby-springmvc/wby-springmvc.iml" filepath="$PROJECT_DIR$/wby-springmvc/wby-springmvc.iml" />
     </modules>
   </component>
