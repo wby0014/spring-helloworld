@@ -20,6 +20,7 @@
         <module>wby-springmvc</module>
         <module>wby-spring</module>
         <module>wby-springaop</module>
+        <module>wby-springjdbc</module>
     </modules>
 
 

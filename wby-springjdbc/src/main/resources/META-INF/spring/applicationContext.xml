@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:profiles/dev.properties"/>
+
+    <!--配置druid数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${datasource.driverName}"/>
+        <property name="url" value="${datasource.url}"/>
+        <property name="username" value="${datasource.name}"/>
+        <property name="password" value="${datasource.password}"/>
+        <property name="maxActive" value="${datasource.maxActive}"/>
+        <property name="initialSize" value="${datasource.initialize}"/>
+        <property name="connectionProperties" value="config.decrypt=false"/>
+        <property name="filters" value="config,log4j"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x' from dual "/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="false"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="0"/>
+    </bean>
+
+    <!--配置业务bean -->
+    <bean id="userService" class="com.example.base.service.impl.UserServiceImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>
